@@ -10,7 +10,7 @@
 		:readonly="schema.readonly",
 		:required="schema.required",
 		:rows="schema.rows || 2",
-		:name="schema.inputName",
+		:name="getFieldName(schema)",
 		v-attributes="'input'")
 </template>
 

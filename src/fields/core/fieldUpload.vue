@@ -3,7 +3,7 @@
 	input.form-control(
 		:id="getFieldID(schema)",
 		type="file",
-		:name="schema.inputName",
+		:name="getFieldName(schema)",
 		@change="onChange",
 		:accept="schema.accept",
 		:multiple="schema.multiple",

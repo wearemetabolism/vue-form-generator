@@ -26,7 +26,7 @@
 		:min="schema.min",
 		:minlength="schema.minlength",
 		:multiple="schema.multiple",
-		:name="schema.inputName",
+		:name="getFieldName(schema)",
 		:pattern="schema.pattern",
 		:placeholder="schema.placeholder",
 		:readonly="schema.readonly",

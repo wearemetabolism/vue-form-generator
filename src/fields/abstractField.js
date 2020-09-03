@@ -213,6 +213,14 @@ export default {
 			return slugifyFormID(schema, idPrefix) + (unique ? "-" + uniqueId() : "");
 		},
 
+		getFieldName(schema) {
+
+			let name = "";
+			(schema.model||"").toString().split(".").forEach((entry, index)=>{ name += index ? "["+entry+"]" : entry; });
+
+			return schema.inputName?schema.inputName:name;
+		},
+
 		getFieldClasses() {
 			return objGet(this.schema, "fieldClasses", []);
 		},
