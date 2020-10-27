@@ -37,7 +37,7 @@
 		:width="schema.width",
 		:files="schema.files"
 		v-attributes="'input'")
-	span.helper(v-if="schema.inputType.toLowerCase() === 'color' || schema.inputType.toLowerCase() === 'range'") {{ value }}
+	span.helper(v-if="schema.inputType.toLowerCase() === 'color' || schema.inputType.toLowerCase() === 'range'") {{ value }} {{ schema.unit ? schema.unit : '' }}
 </template>
 
 <script>
@@ -71,7 +71,6 @@ export default {
 					case "datetime":
 					case "datetime-local":
 					case "number":
-					case "range":
 						// debounce
 						return (newValue, oldValue) => {
 							this.debouncedFormatFunc(value, oldValue);
@@ -145,7 +144,6 @@ export default {
 	mounted() {
 		switch (this.schema.inputType.toLowerCase()) {
 			case "number":
-			case "range":
 				this.debouncedFormatFunc = debounce(
 					(newValue, oldValue) => {
 						this.formatNumberToModel(newValue, oldValue);
